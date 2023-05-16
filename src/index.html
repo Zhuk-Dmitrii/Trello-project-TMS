@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>trello</title>
+   <link rel="stylesheet" href="./scss/app.scss">
+   <script src="./js/app.js" type="module"></script>
+</head>
+
+<body>
+   <!--обертка сайта-->
+   <div class="trello-page">
+      <div class="trello-page__wrapper">
+
+         <!--шапка сайта-->
+         <header class="trello-page__header">
+            <div class="header__container">
+               <div class="header__logo">
+                  <img src="./imgs/logo.png" alt="">
+               </div>
+               <time class="header__time"></time>
+            </div>
+         </header>
+
+         <!--обертка для контейнеров, которые содержат карточки-->
+         <div class="trello-page__content">
+            <div class="trello-page__container">
+
+               <!--контейнер, для карточек Todo-->
+               <div class="trello-page__todo container-item">
+                  <div class="todo__header header-item">
+                     <p class="todo__title title-item">Todo</p>
+                     <p class="todo__counter counter-cards">0</p>
+                  </div>
+
+                  <!--блок, где будут отображаться карточки Todo-->
+                  <div class="todo__cards cards">
+                     <!--макет карточки-->
+
+                  </div>
+                  <!--кнопка, которая вызывает модальное окно для создания карточек Todo-->
+                  <div class="todo__form item-btn">
+                     <button type="button" class="todo__button-add btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModalAdd">
+                        Add Todo
+                     </button>
+                     <div class="modal fade" id="exampleModalAdd">
+                        <div class="modal-dialog">
+                           <div class="modal-content">
+                              <div class="modal-header">
+                                 <h1 class="modal-title fs-5">New Todo</h1>
+                                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                              </div>
+                              <div class="modal-body">
+                                 <form id="create-form">
+                                    <div class="mb-3">
+                                       <label for="title-create" class="col-form-label">Title:</label>
+                                       <input type="text" class="form-control" id="title-create" required>
+                                    </div>
+                                    <div class="mb-3">
+                                       <label for="description-create" class="col-form-label">Description:</label>
+                                       <textarea class="form-control" id="description-create" required></textarea>
+                                    </div>
+                                    <label for="responsible-create" class="col-form-label">Responsible:</label>
+                                    <select id="responsible-create" class="form-select form-select-sm" aria-label=".form-select-sm example">
+                                       <option value="Артем">Артем</option>
+                                       <option value="Олег">Олег</option>
+                                       <option value="Кирилл">Кирилл</option>
+                                    </select>
+                                    <div class="modal-footer">
+                                       <button type="button" class="btn btn-secondary"
+                                          data-bs-dismiss="modal">Close</button>
+                                       <button type="submit" id="create-btn" class="btn btn-primary">Create Todo</button>
+                                    </div>
+                                 </form>
+                              </div>
+                           </div>
+                        </div>
+                     </div>
+                  </div>
+               </div>
+
+               <!--контейнер, для карточек In progress-->
+               <div class="trello-page__in-progress container-item">
+                  <div class="in-progress__header header-item">
+                     <p class="in-progress__title title-item">In progress</p>
+                     <p class="in-progress__counter counter-cards">0</p>
+                  </div>
+                  <!--непосредственно само поле где будут отображаться карточки In progress-->
+                  <div class="in-progress__cards cards">
+                  </div>
+               </div>
+
+               <!--контейнер, для карточек Done-->
+               <div class="trello-page__done container-item">
+                  <div class="done__header header-item">
+                     <p class="done__title title-item">Done</p>
+                     <p class="done__counter counter-cards">0</p>
+                  </div>
+                  <!--непосредственно само поле где будут отображаться карточки Done-->
+                  <div class="done__cards cards">
+                  </div>
+                  <div class="done__button item-btn">
+                     <button class="done__button-removeAll">Remove All</button>
+                  </div>
+               </div>
+
+            </div>
+         </div>
+      </div>
+   </div>
+</body>
+
+</html>
